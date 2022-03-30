@@ -9,8 +9,8 @@
 #include <dt-bindings/zmk/matrix-transform.h>
 
 / {
-	model = "FEO_Earth, rev1";
-	compatible = "FEO_Earth,rev1";
+	model = "FeO_Earth";
+	compatible = "MarvFPV,FeO_Earth";
 
 	chosen {
 		zephyr,code-partition = &code_partition;

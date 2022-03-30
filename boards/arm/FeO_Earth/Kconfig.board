@@ -3,6 +3,6 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-config BOARD_FEO_EARTH_REV1
-	bool "FEO_Earth_rev1 Keyboard"
+config BOARD_FEO_EARTH
+	bool "FeO_Earth_ Keyboard"
 	depends on SOC_NRF52840_QIAA

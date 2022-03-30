@@ -3,10 +3,10 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if BOARD_FEO_EARTH_REV1
+if BOARD_FEO_EARTH
 
 config ZMK_KEYBOARD_NAME
-	default "FEO_Earth_rev1"
+	default "FeO_Earth"
 
 if USB
 
@@ -30,4 +30,4 @@ config ZMK_USB
 config ZMK_BATTERY_VOLTAGE_DIVIDER
 	default y
 
-endif # BOARD_FEO_EARTH_REV1
+endif # BOARD_FEO_EARTH
