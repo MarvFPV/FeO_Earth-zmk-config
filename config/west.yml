@@ -1,13 +1,11 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
-    - name: petejohanson
-      url-base: https://github.com/petejohanson
+      url-base: https://github.com/MarvFPV
   projects:
     - name: zmk
-      remote: petejohanson
-      revision: zephyr-2.5-upgrade
+      remote: zmkfirmware
+      revision: experimental
       import: app/west.yml
   self:
     path: config

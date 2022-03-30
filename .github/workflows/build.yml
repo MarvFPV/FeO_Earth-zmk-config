@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:2.4
+      image: zmkfirmware/zmk-build-arm:2.5
     name: Build
     steps:
       - name: Checkout
@@ -33,19 +33,17 @@ jobs:
         run: west update
       - name: West Zephyr export
         run: west zephyr-export
-      - name: West Build (Hummingbird)
-        run: west build -s zmk/app -b seeeduino_xiao -- -DSHIELD=hummingbird -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: UF2 Build
-        run: python3 ./tools/uf2/utils/uf2conv.py -c -f SAMD21 -o build/zephyr/zmk.uf2 build/zephyr/zmk.bin
-      - name: Hummingbird DTS File
+      - name: West Build (FeO_Earth)
+        run: west build -s zmk/app -b FeO_Earth -- -DZMK_CONFIG="${GITHUB_WORKSPACE}"
+      - name: FeO_Earth DTS File
         if: ${{ always() }}
-        run: cat -n build/zephyr/seeeduino_xiao.dts.pre.tmp
-      - name: Hummingbird Kconfig file
+        run: cat -n build/zephyr/FeO_Earth.dts.pre.tmp
+      - name: Feo_Earth Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 hummingbird.uf2
-      - name: Archive (Hummingbird)
+        run: cp build/zephyr/zmk.uf2 FeO_Earth.uf2
+      - name: Archive (FeO_Earth)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: hummingbird.uf2
+          path: FeO_Earth.uf2
